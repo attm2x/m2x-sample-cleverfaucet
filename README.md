@@ -1,7 +1,7 @@
 # Sample Smart Faucet using AT&T's M2X and Raspberry Pi
 This app for your Raspberry Pi records how much water and what temperature water is being used at a faucet connected to your Pi using a flowmeter and a temperature sensor. It then will send that information to AT&T's M2X service where it is stored for future retrieval and analysis.
 
-This simple web app is currently monitoring the faucet: https://floating-beach-7934.herokuapp.com.
+If you want to display the data from your faucet, here’s a quick app that you can deploy to heroku: https://github.com/attm2x/m2x-sample-faucet-web
 
 
 ## What you need
@@ -21,7 +21,7 @@ This simple web app is currently monitoring the faucet: https://floating-beach-7
 1. Clone this repository
  
   ```bash
-  $ git clone https://github.com/sterlzbd/faucet.git
+  $ git clone https://github.com/attm2x/m2x-sample-faucet-raspberrypi
   $ cd faucet
   ```
 
