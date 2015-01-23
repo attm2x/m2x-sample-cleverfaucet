@@ -23,6 +23,7 @@ This simple web app is currently monitoring the faucet: https://floating-beach-7
 $ git clone https://github.com/sterlzbd/faucet.git
 $ cd faucet
 ```
+
 2. [Create a new M2X device.](https://m2x.att.com/devices?)
 3. Copy the Device ID from the device page.
 4. From your [M2X account page](https://m2x.att.com/account#master-keys) get your Master Key.
@@ -48,4 +49,5 @@ device = client.devices.get('device_id_here')
 ```bash
 $ python main.py
 ```
+
 9. Check out the data streams on M2X and you should see them update when you use the faucet! 
