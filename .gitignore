@@ -1,0 +1,10 @@
+*.pyc
+*.png
+.idea
+tests
+flow.py
+temp.py
+secrets.py
+faucet_app.py
+m2x_example.py
+FaucetStart.sh
