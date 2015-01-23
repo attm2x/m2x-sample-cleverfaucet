@@ -18,11 +18,12 @@ This simple web app is currently monitoring the faucet: https://floating-beach-7
 * [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO) - _If you are running Raspbian this should already be included with its Python installation_ 
 
 ## Instructions
-1. Clone this repository 
-```bash
-$ git clone https://github.com/sterlzbd/faucet.git
-$ cd faucet
-```
+1. Clone this repository
+ 
+  ```bash
+  $ git clone https://github.com/sterlzbd/faucet.git
+  $ cd faucet
+  ```
 
 2. [Create a new M2X device.](https://m2x.att.com/devices?)
 3. Copy the Device ID from the device page.
@@ -46,8 +47,8 @@ device = client.devices.get('device_id_here')
     Here is the GPIO Diagram from the various Pi Models:
     ![](http://raspi.tv/wp-content/uploads/2014/07/Raspberry-Pi-GPIO-pinouts.png)
 8. Place the faucet directory on your Pi. Now simply run main.py:
-```bash
-$ python main.py
-```
+  ```bash
+  $ python main.py
+  ```
 
 9. Check out the data streams on M2X and you should see them update when you use the faucet! 
