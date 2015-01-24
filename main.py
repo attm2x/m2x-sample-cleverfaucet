@@ -5,14 +5,10 @@ import glob
 import time
 from datetime import datetime
 import RPi.GPIO as GPIO
-from sensors import *
+from sensors import FlowMeter, OneWireTempSensor
 #from secrets import MASTER_API_KEY, DEVICE_ID
 from m2x.client import M2XClient
 from m2x.utils import to_iso
-
-# configure for OneWire
-os.system('modprobe w1-gpio')
-os.system('modprobe w1-therm')
 
 # Initialize M2X Client, change MASTER_API_KEY and DEVICE_ID to yours
 client = M2XClient(MASTER_API_KEY)
@@ -54,6 +50,8 @@ try:
             temp_stream.add_value(flowmeter.checkTempC(), postTime)
             flowmeter.thisFlow = 0.0
 
-except Exception,e: 
-        print e
-        GPIO.cleanup()
+except KeyboardInterrupt:
+    print "Stopping faucet monitor."
+finally:
+    GPIO.cleanup()
+

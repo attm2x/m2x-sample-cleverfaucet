@@ -10,34 +10,34 @@ class OneWireTempSensor(object):
     # Default to Raspberry Pi device directory
     # One wire sensors each have unique serial number of the form 28-xxxx
     # represented as string
-    def __init__(self, serial, base_dir='/sys/bus/w1/devices/'):
-        self.base_dir = base_dir
+    def __init__(self, serial, base_dir=None):
+        self.base_dir = base_dir or self.base_dir
         self.serial = serial
-        self.device_file = self.base_dir + self.serial + '/w1_slave'
+        self.device_file = self.base_dir + self.serial + self.temperature_file
         self.tempc = None
         self.tempf = None
 
     def read_temp_raw(self):
-        f = open(self.device_file, 'r')
-        lines = f.readlines()
-        f.close()
-        return lines
+        with open(self.device_file, 'r') as f:
+            return f.readlines()
 
     def read_temp(self):
         lines = self.read_temp_raw()
         while lines[0].strip()[-3:] != 'YES':
             time.sleep(0.2)
             lines = self.read_temp_raw()
-        equals_pos = lines[1].find('t=')
-        if equals_pos != -1:
+        if 't=' in lines[1]:
+            equals_pos = lines[1].find('t=')
             temp_string = lines[1][equals_pos+2:]
             self.tempc = float(temp_string) / 1000.0
             self.tempf = self.tempc * 9.0 / 5.0 + 32.0
 
     def get_tempc(self):
+        self.read_temp()
         return self.tempc
 
     def get_tempf(self):
+        self.read_temp()
         return self.tempf
 
     @classmethod
@@ -46,15 +46,9 @@ class OneWireTempSensor(object):
         Need to make sure modprobe w1-gpio and modprobe w1-therm modules
         are running 
         """
-        if testing:
-            device_folders = glob.glob(cls.test_dir + '28*')
-        else:
-            device_folders = glob.glob(cls.base_dir + '28*')
-        device_numbers = []
-        for folder in device_folders:
-            number = folder[folder.rfind('/')+1:]
-            device_numbers.append(number)
-
+        base_dir = cls.test_dir if testing else cls.base_dir
+        device_folders = glob.glob(base_dir + '28*')
+        device_numbers = [folder.rsplit('/', 1)[-1] for folder in device_folders]
         return device_numbers
 
 
@@ -90,15 +84,11 @@ class FlowMeter(object):
 
     def checkTempC(self):
         if self.temp_sensor is not None:
-            self.temp_sensor.read_temp()
             return self.temp_sensor.get_tempc()
-        return None
 
     def checkTempF(self):
         if self.temp_sensor is not None:
-            self.temp_sensor.read_temp()
             return self.temp_sensor.get_tempf()
-        return None
 
     def getFormattedClickDelta(self):
         return str(self.clickDelta) + ' ms'
