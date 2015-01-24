@@ -15,6 +15,6 @@ else
   echo "Modules loaded."
   echo "Running faucet monitor script..."
   python main.py
-  exit 1
+  exit 0
 fi
 
