@@ -47,9 +47,9 @@ device = client.devices.get('device_id_here')
 
     Here is the GPIO Diagram from the various Pi Models:
     ![](http://raspi.tv/wp-content/uploads/2014/07/Raspberry-Pi-GPIO-pinouts.png)
-8. Place the faucet directory on your Pi. Now simply run main.py:
+8. Place the faucet directory on your Pi. Now simply run the following:
   ```bash
-  $ python main.py
+  $ sudo ./start.sh
   ```
 
 9. Check out the data streams on M2X and you should see them update when you use the faucet! 
