@@ -53,3 +53,8 @@ device = client.devices.get('device_id_here')
   ```
 
 9. Check out the data streams on M2X and you should see them update when you use the faucet! 
+
+##LICENSE
+
+This sample application is released under the MIT license. See [`LICENSE`](LICENSE) for the terms.
+
