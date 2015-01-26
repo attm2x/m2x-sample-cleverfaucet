@@ -1,7 +1,7 @@
 # Sample Smart Faucet using AT&T's M2X and Raspberry Pi
 <img align="left" src="/logo.png"> This Python app for your Raspberry Pi records how much water and what temperature water is being used at a faucet connected to your Pi using a flowmeter and a temperature sensor. It then will send that information to AT&T's [M2X](https://m2x.att.com) service where it is stored for future retrieval and analysis.
 
-If you want to display the data from your faucet, here’s a quick app that you can deploy to Heroku: https://github.com/attm2x/m2x-sample-faucet-web
+If you want to display the data from your faucet, here’s a quick app that you can deploy to Heroku: https://github.com/attm2x/m2x-sample-cleverfaucet-web
 
 ## What you need
 * Familiarity with the AT&T [M2X API](https://m2x.att.com/developer/documentation/v2/overview)
@@ -22,7 +22,7 @@ If you want to display the data from your faucet, here’s a quick app that you 
 1. Clone this repository
  
   ```bash
-  $ git clone https://github.com/attm2x/m2x-sample-faucet-raspberrypi
+  $ git clone https://github.com/attm2x/m2x-sample-cleverfaucet
   $ cd faucet
   ```
 
