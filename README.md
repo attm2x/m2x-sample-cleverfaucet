@@ -15,7 +15,7 @@ If you want to display the data from your faucet, here’s a quick app that you 
 ## Dependencies
 
 * Python running on your Raspberry Pi ([Tutorial](https://m2x.att.com/developer/tutorials/raspberry))
-* [m2x-python](https://github.com/attm2x/m2x-python) - v3.0.0
+* [m2x-python](https://github.com/attm2x/m2x-python) - v3.0.4
 * [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO) - _If you are running Raspbian this should already be included with its Python installation_ 
 
 ## Instructions
